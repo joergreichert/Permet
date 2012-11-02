@@ -26,7 +26,6 @@ Workflow {
     component = Generator {
         pathRtProject = runtimeProject
         pathUiProject = "${runtimeProject}.ui"
-        pathTestProject = "${runtimeProject}.tests"
         projectNameRt = projectName
         projectNameUi = "${projectName}.ui"
         language = {
@@ -38,17 +37,14 @@ Workflow {
 
             // generates Java API for the generated EPackages
             fragment = ecore.EcoreGeneratorFragment {
-            // referencedGenModels = "
-            //  platform:/resource/org.eclipse.xtext.xbase/model/Xbase.genmodel,
-            //  platform:/resource/org.eclipse.xtext.common.types/model/JavaVMTypes.genmodel
-            // "
+            	emfRuntimeVersion = "2.5"
             }
 
             // Serializer 2.0
-            //fragment = serializer.SerializerFragment {}
+            fragment = serializer.SerializerFragment {}
             
             // the serialization component (1.0)
-            fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
+            // fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
 
             // a custom ResourceFactory for use with EMF
             fragment = resourceFactory.ResourceFactoryFragment {

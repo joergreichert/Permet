@@ -19,15 +19,13 @@ import org.eclipse.graphiti.mm.pictograms.Diagram;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.mm.pictograms.PictogramLink;
 import org.eclipse.graphiti.platform.IDiagramEditor;
+import org.eclipse.graphiti.ui.editor.DiagramEditor;
 import org.eclipse.graphiti.ui.internal.T;
-import org.eclipse.graphiti.ui.internal.editor.DiagramEditorInternal;
 import org.eclipse.graphiti.ui.internal.parts.FreeFormConnectionEditPart;
 import org.eclipse.graphiti.ui.internal.parts.IContainerShapeEditPart;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.IContributedContentsView;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.State;
-import org.eclipse.xtext.example.fowlerdsl.statemachine.Transition;
 
 public class FowlerDslPropertiesEditionSection extends PropertiesEditionSection {
 	private PictogramElement pe = null;
@@ -93,16 +91,16 @@ public class FowlerDslPropertiesEditionSection extends PropertiesEditionSection 
 	 */
 	protected IDiagramEditor getDiagramEditor() {
 		IWorkbenchPart part = getPart();
-		if (part instanceof DiagramEditorInternal) {
-			return (DiagramEditorInternal) part;
+		if (part instanceof DiagramEditor) {
+			return (DiagramEditor) part;
 		}
 		IContributedContentsView contributedView = (IContributedContentsView) part
 				.getAdapter(IContributedContentsView.class);
 		if (contributedView != null) {
 			part = contributedView.getContributingPart();
 		}
-		if (part instanceof DiagramEditorInternal) {
-			return (DiagramEditorInternal) part;
+		if (part instanceof DiagramEditor) {
+			return (DiagramEditor) part;
 		}
 
 		return null;
