@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.xtext.example.fowlerdsl.feature_0.0.0.jar" id="org.eclipse.xtext.example.fowlerdsl.feature" version="0.0.0">
+      <category name="permet"/>
+   </feature>
+   <category-def name="permet" label="Permet"/>
+</site>

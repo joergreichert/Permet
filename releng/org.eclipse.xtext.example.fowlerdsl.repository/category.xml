@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature url="features/de.itemis.xtext.antlr.sdk_0.0.0.jar" id="de.itemis.xtext.antlr.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/de.itemis.xtext.antlr.feature_0.0.0.jar" id="de.itemis.xtext.antlr.feature" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.sdk_0.0.0.jar" id="org.eclipse.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.pde_0.0.0.jar" id="org.eclipse.pde" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.emf.sdk_0.0.0.jar" id="org.eclipse.emf.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.emf.transaction.sdk_0.0.0.jar" id="org.eclipse.emf.transaction.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.emf.eef.sdk-feature_0.0.0.jar" id="org.eclipse.emf.eef.sdk-feature" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.gef.sdk_0.0.0.jar" id="org.eclipse.gef.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.zest.sdk_0.0.0.jar" id="org.eclipse.zest.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.graphiti.sdk.plus.feature_0.0.0.jar" id="org.eclipse.graphiti.sdk.plus.feature" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.xtext.sdk_0.0.0.jar" id="org.eclipse.xtext.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.xtend.sdk_0.0.0.jar" id="org.eclipse.xtend.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.emf.mwe2.language.sdk_0.0.0.jar" id="org.eclipse.emf.mwe2.language.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.emf.mwe2.runtime.sdk_0.0.0.jar" id="org.eclipse.emf.mwe2.runtime.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.swtbot.eclipse_0.0.0.jar" id="org.eclipse.swtbot.eclipse" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.eclipse.swtbot.eclipse.gef_0.0.0.jar" id="org.eclipse.swtbot.eclipse.gef" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<feature url="features/org.xpect.sdk_0.0.0.jar" id="org.xpect.sdk" version="0.0.0">
+		<category name="3rdparty"/>
+	</feature>
+	<!-- https://bugs.eclipse.org/bugs/show_bug.cgi?id=378338 -->
+	<bundle url="plugins/org.jdom_0.0.0.jar" id="org.jdom" version="0.0.0">
+		<category name="3rdparty"/>
+	</bundle>
+	<bundle url="plugins/org.mockito_0.0.0.jar" id="org.mockito" version="0.0.0">
+		<category name="3rdparty"/>
+	</bundle>
+	<bundle url="plugins/org.objenesis_0.0.0.jar" id="org.objenesis" version="0.0.0">
+		<category name="3rdparty"/>
+	</bundle>
+	<category-def name="3rdparty" label="Third Party">
+		<description>Permet Target Platform - Eclipse 4.3</description>
+	</category-def>
+</site>

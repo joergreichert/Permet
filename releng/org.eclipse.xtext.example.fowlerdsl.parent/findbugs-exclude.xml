@@ -1,0 +1,49 @@
+<!-- ***************************************************************************
+ *  Copyright (c)  The Permet Project.
+ *  All rights reserved. This program and the accompanying materials
+ *  are made available under the terms of the Eclipse Public License v1.0
+ *  which accompanies this distribution, and is available at
+ *  http://www.eclipse.org/legal/epl-v10.html
+ *  
+ *  Contributors:
+ *      Permet Dev Team - initial API and implementation
+**************************************************************************** -->
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+       <Match>
+                <Package name="~.*\.org/eclipse.*" />
+       </Match>
+       <Match>
+                <Package name="~.*\.internal.*" />
+       </Match>
+       <Match>
+                <Package name="~.*\.antlr*" />
+       </Match>
+       <Match>
+                <Package name="~.*\.parseTree*" />
+       </Match>
+       <Match>
+                <Package name="~.*\.mm*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.Abstract*RuntimeModule*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.SetupGenerated*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.Abstract*Validator*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.GrammarAccess*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.Abstract*UiModule*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.Abstract*ProposalProvider*" />
+       </Match>
+       <Match>
+				<Class name="~.*\.Abstract*SemanticSequencer*" />
+       </Match>
+</FindBugsFilter>

@@ -1,0 +1,13 @@
+// see https://github.com/joergreichert/RepositoryTargetGenerator/wiki
+// download update site from here: https://github.com/joergreichert/RepositoryTargetGenerator/tree/master/releases 
+TargetDefinition "Permet Orbit Target Platform" 
+
+	targetFile = org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform
+
+	"Orbit" http://download.eclipse.org/tools/orbit/downloads/drops/R20130517111416/repository/ {
+		org.jdom noFeature 1.1.1.v201101151400,
+		org.mockito noFeature 1.8.4.v201303031500,
+		// dependency of Mockito
+		org.objenesis noFeature 1.0.0.v201105211943
+	}
+	

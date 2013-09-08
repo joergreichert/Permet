@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- Tycho requires Maven 3 -->
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<parent>
+		<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
+		<artifactId>org.eclipse.xtext.example.fowlerdsl.config.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+		<relativePath>../../releng/org.eclipse.xtext.example.fowlerdsl.config.parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
+	<artifactId>org.eclipse.xtext.example.fowlerdsl.distribution</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<name>Permet</name>
+	
+	<modules>
+		<module>../../releng/org.eclipse.xtext.example.fowlerdsl.repository.parent</module>
+		<module>../../releng/org.eclipse.xtext.example.fowlerdsl.targetplatform</module>
+		<module>../../releng/org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform</module>
+		<module>../../releng/org.eclipse.xtext.example.fowlerdsl.parent</module>
+	</modules>
+	
+	<profiles>
+		<profile>
+			<id>modules-default</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<modules>
+				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl</module>
+				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.ui</module>
+				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.eef</module>
+				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.diagram</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>modules-targetplatform</id>
+			<activation>
+				<property>
+					<name>modules-targetplatform</name>
+				</property>
+			</activation>
+			<modules>
+				<module>../../releng/org.eclipse.xtext.example.fowlerdsl.repository</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>modules-assembly</id>
+			<activation>
+				<property>
+					<name>modules-assembly</name>
+				</property>
+			</activation>
+			<modules>
+				<module>../../features/org.eclipse.xtext.example.fowlerdsl.feature</module>
+				<module>../../features/org.eclipse.xtext.example.fowlerdsl.updatesite</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>codeCoverage</id>
+			<properties>
+				<jacoco.propertyName>coverageAgent</jacoco.propertyName>
+				<jacoco.append>true</jacoco.append>
+				<jacoco.destFile>${project.basedir}/../../releng/org.eclipse.xtext.example.fowlerdsl.parent/target/jacoco.exec</jacoco.destFile>
+				<jacoco.it.destFile>${project.basedir}/../../releng/org.eclipse.xtext.example.fowlerdsl.parent/target/jacoco_it.exec</jacoco.it.destFile>
+				<!--jacoco.sessionId>junit4runnerSession</jacoco.sessionId-->
+				<!--jacoco.dumpOnExit>true</jacoco.dumpOnExit-->
+				<!--jacoco.output>file</jacoco.output-->
+				<!--jacoco.address>localhost</jacoco.address-->
+				<!--jacoco.port>9999</jacoco.port-->
+				<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+				<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+				<sonar.jacoco.reportPath>${jacoco.destFile}</sonar.jacoco.reportPath>
+				<sonar.surefire.reportsPath>../${project.artifactId}.tests/target/surefire-reports/</sonar.surefire.reportsPath>
+				<sonar.jacoco.itReportPath>${jacoco.it.destFile}</sonar.jacoco.itReportPath>
+			</properties> 		
+		</profile>
+	</profiles>
+</project>
