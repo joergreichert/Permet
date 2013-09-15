@@ -3,10 +3,9 @@ package org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.xtext.example.fowlerdsl.diagram.properties.FowlerDslPropertiesEditionPartFormUtils;
 import org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.StateFilter;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.parts.forms.StatePropertiesEditionPartForm;
@@ -16,14 +15,6 @@ public class CustomStatePropertiesEditionPartForm extends
 	private StateFilter filter = new StateFilter();
 	private IWorkbenchPart part = null;
 	private PictogramElement pe = null;
-
-	@Override
-	public void createControls(final FormToolkit widgetFactory,
-			Composite view) {
-		super.createControls(widgetFactory, view);
-		FowlerDslPropertiesEditionPartFormUtils.disableReferencesTable(actions);
-		FowlerDslPropertiesEditionPartFormUtils.disableReferencesTable(transitions);
-	}	
 	
 	@Override
 	public void refresh() {
@@ -39,7 +30,13 @@ public class CustomStatePropertiesEditionPartForm extends
 				pe = FowlerDslPropertiesEditionPartFormUtils.getSelectedPictogramElement(selection);
 				setInput(part, selection);
 				if (this.propertiesEditionComponent != null) {
-					super.refresh();
+					Display.getCurrent().asyncExec(new Runnable() {
+	                    public void run() {
+	                    	CustomStatePropertiesEditionPartForm.super.refresh();
+	    					FowlerDslPropertiesEditionPartFormUtils.disableReferencesTable(actions);
+	    					FowlerDslPropertiesEditionPartFormUtils.disableReferencesTable(transitions);
+	                    }
+	                });
 				}
 			}
 		}
@@ -47,6 +44,7 @@ public class CustomStatePropertiesEditionPartForm extends
 	
 	@Override
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
+		System.err.println(event);
 		if (part != null && pe != null) {
 			FowlerDslPropertiesEditionPartFormUtils.firePropertiesChanged(
 					event, pe, part);

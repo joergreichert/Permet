@@ -3,9 +3,23 @@
  */
 package org.eclipse.xtext.example.fowlerdsl;
 
-/**
- * Use this class to register components to be used at runtime / without the Equinox extension registry.
- */
-public class StatemachineRuntimeModule extends org.eclipse.xtext.example.fowlerdsl.AbstractStatemachineRuntimeModule {
+import org.eclipse.xtext.example.fowlerdsl.resource.StatemachineDerivedStateComputer;
+import org.eclipse.xtext.example.fowlerdsl.resource.StatemachineResourceDescriptionManager;
+import org.eclipse.xtext.resource.IDerivedStateComputer;
+import org.eclipse.xtext.resource.IResourceDescription;
 
+/**
+ * Use this class to register components to be used at runtime / without the
+ * Equinox extension registry.
+ */
+public class StatemachineRuntimeModule extends
+		org.eclipse.xtext.example.fowlerdsl.AbstractStatemachineRuntimeModule {
+
+	public Class<? extends IResourceDescription.Manager> bindIResourceDescriptionManager() {
+		return StatemachineResourceDescriptionManager.class;
+	}
+	
+	public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
+		return StatemachineDerivedStateComputer.class;
+	}	
 }

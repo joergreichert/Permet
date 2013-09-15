@@ -4,12 +4,25 @@
 package org.eclipse.xtext.example.fowlerdsl.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.example.fowlerdsl.ui.editor.StatemachineDirtyStateEditorSupport;
+import org.eclipse.xtext.example.fowlerdsl.ui.editor.StatemachineDirtyStateManager;
+import org.eclipse.xtext.ui.editor.DirtyStateEditorSupport;
+import org.eclipse.xtext.ui.editor.DirtyStateManager;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
-public class StatemachineUiModule extends org.eclipse.xtext.example.fowlerdsl.ui.AbstractStatemachineUiModule {
+public class StatemachineUiModule extends
+		org.eclipse.xtext.example.fowlerdsl.ui.AbstractStatemachineUiModule {
 	public StatemachineUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+
+	Class<? extends DirtyStateEditorSupport> bindDirtyStateEditorSupport() {
+		return StatemachineDirtyStateEditorSupport.class;
+	}
+
+	Class<? extends DirtyStateManager> bindDirtyStateManager() {
+		return StatemachineDirtyStateManager.class;
 	}
 }

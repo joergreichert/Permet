@@ -27,7 +27,13 @@
             class="org.eclipse.xtext.example.fowlerdsl.statemachine.providers.StatemachineEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
-
+   <extension
+         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
+      <PropertiesEditionPartProvider
+            providerClass="org.eclipse.xtext.example.fowlerdsl.statemachine.providers.StatemachinePropertiesEditionPartProvider">
+      </PropertiesEditionPartProvider>
+   </extension>
+   
   <!-- Tabbed properties views extension -->
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
