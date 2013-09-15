@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.example.fowlerdsl.ui;bundle-version="0.1.0",
  org.eclipse.graphiti;bundle-version="0.8.0",
  org.eclipse.graphiti.ui;bundle-version="0.8.0",
- org.eclipse.gef;bundle-version="3.7.0"
+ org.eclipse.gef;bundle-version="3.7.0",
+ org.eclipse.xtext.example.fowlerdsl.edit;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

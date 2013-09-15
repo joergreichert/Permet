@@ -1,27 +1,54 @@
 package org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
-import org.eclipse.xtext.example.fowlerdsl.diagram.properties.FowlerDslElementFilter;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.xtext.example.fowlerdsl.diagram.properties.FowlerDslPropertiesEditionPartFormUtils;
 import org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.TransitionFilter;
 import org.eclipse.xtext.example.fowlerdsl.statemachine.parts.forms.TransitionPropertiesEditionPartForm;
 
 public class CustomTransitionPropertiesEditionPartForm extends
 		TransitionPropertiesEditionPartForm {
+	private TransitionFilter filter = new TransitionFilter();
+	private IWorkbenchPart part = null;
 	private PictogramElement pe = null;
-	private FowlerDslElementFilter filter = new TransitionFilter();
-	
+
 	@Override
-	public EObject getState() {
-		// TODO Auto-generated method stub
-		return super.getState();
+	public void createControls(final FormToolkit widgetFactory, Composite view) {
+		super.createControls(widgetFactory, view);
+		state.setEnabled(false);
 	}
-	
+
+	@Override
+	public void refresh() {
+		if (this.propertiesEditionComponent != null) {
+			this.propertiesEditionComponent.dispose();
+		}
+		part = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getActivePart();
+		if (part != null) {
+			ISelection selection = FowlerDslPropertiesEditionPartFormUtils
+					.createSelection(part, filter);
+			if (selection != null) {
+				pe = FowlerDslPropertiesEditionPartFormUtils
+						.getSelectedPictogramElement(selection);
+				setInput(part, selection);
+				if (this.propertiesEditionComponent != null) {
+					super.refresh();
+				}
+			}
+		}
+	}
+
 	@Override
 	public void firePropertiesChanged(IPropertiesEditionEvent event) {
-		// Start of user code for tab synchronization
-		
-		// End of user code
+		if (part != null && pe != null) {
+			FowlerDslPropertiesEditionPartFormUtils.firePropertiesChanged(
+					event, pe, part);
+		}
 	}
 }

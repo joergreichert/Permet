@@ -27,19 +27,13 @@
             class="org.eclipse.xtext.example.fowlerdsl.statemachine.providers.StatemachineEEFAdapterFactory"
             supportedTypes="org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider"/>
    </extension>
-   <extension
-         point="org.eclipse.emf.eef.runtime.PropertiesEditionPartProvider">
-      <PropertiesEditionPartProvider
-            providerClass="org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms.CustomStatemachinePropertiesEditionPartProvider">
-      </PropertiesEditionPartProvider>
-   </extension>
 
   <!-- Tabbed properties views extension -->
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
             contributorId="StatemachineDiagramType.PropertyContributor"
-            labelProvider="org.eclipse.emf.eef.runtime.ui.utils.EEFLabelProvider">
+            labelProvider="org.eclipse.xtext.example.fowlerdsl.diagram.properties.FowlerDslLabelProvider">
          <propertyCategory
                category="default">
          </propertyCategory>
@@ -72,30 +66,45 @@
                filter="org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.StatemachineFilter"
                id="org.eclipse.xtext.example.fowlerdsl.statemachine.section.Statemachine"
                tab="Base">
+               <input
+                     type="org.eclipse.xtext.example.fowlerdsl.statemachine.Statemachine">
+               </input>
          </propertySection>
          <propertySection
                class="org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms.CustomEventPropertiesEditionPartForm"
                filter="org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.EventFilter"
                id="org.eclipse.xtext.example.fowlerdsl.statemachine.section.Event"
                tab="Base">
+               <input
+                     type="org.eclipse.xtext.example.fowlerdsl.statemachine.Event">
+               </input>
          </propertySection>
          <propertySection
                class="org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms.CustomCommandPropertiesEditionPartForm"
                filter="org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.CommandFilter"
                id="org.eclipse.xtext.example.fowlerdsl.statemachine.section.Command"
                tab="Base">
+               <input
+                     type="org.eclipse.xtext.example.fowlerdsl.statemachine.Command">
+               </input>
          </propertySection>
          <propertySection
                class="org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms.CustomStatePropertiesEditionPartForm"
                filter="org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.StateFilter"
                id="org.eclipse.xtext.example.fowlerdsl.statemachine.section.State"
                tab="Base">
+               <input
+                     type="org.eclipse.xtext.example.fowlerdsl.statemachine.State">
+               </input>
          </propertySection>
          <propertySection
                class="org.eclipse.xtext.example.fowlerdsl.diagram.properties.forms.CustomTransitionPropertiesEditionPartForm"
                filter="org.eclipse.xtext.example.fowlerdsl.diagram.properties.filter.TransitionFilter"
                id="org.eclipse.xtext.example.fowlerdsl.statemachine.section.Transition"
                tab="Base">
+               <input
+                     type="org.eclipse.xtext.example.fowlerdsl.statemachine.Transition">
+               </input>
          </propertySection>
       </propertySections>
    </extension>  

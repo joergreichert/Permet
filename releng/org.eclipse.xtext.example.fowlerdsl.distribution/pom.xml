@@ -37,6 +37,7 @@
 			<modules>
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl</module>
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.ui</module>
+				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.edit</module>
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.eef</module>
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.diagram</module>
 			</modules>

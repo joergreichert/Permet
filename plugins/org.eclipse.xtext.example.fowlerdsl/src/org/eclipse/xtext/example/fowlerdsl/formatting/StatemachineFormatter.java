@@ -3,25 +3,77 @@
  */
 package org.eclipse.xtext.example.fowlerdsl.formatting;
 
+import org.eclipse.xtext.Keyword;
+import org.eclipse.xtext.example.fowlerdsl.services.StatemachineGrammarAccess;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
+import org.eclipse.xtext.util.Pair;
+
+import com.google.inject.Inject;
 
 /**
  * This class contains custom formatting description.
  * 
  * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#formatting
- * on how and when to use it 
+ * on how and when to use it
  * 
- * Also see {@link org.eclipse.xtext.xtext.XtextFormattingTokenSerializer} as an example
+ * Also see {@link org.eclipse.xtext.xtext.XtextFormattingTokenSerializer} as an
+ * example
  */
 public class StatemachineFormatter extends AbstractDeclarativeFormatter {
-	
+	@Inject
+	private StatemachineGrammarAccess grammar;
+
 	@Override
 	protected void configureFormatting(FormattingConfig c) {
-// It's usually a good idea to activate the following three statements.
-// They will add and preserve newlines around comments
-//		c.setLinewrap(0, 1, 2).before(getGrammarAccess().getSL_COMMENTRule());
-//		c.setLinewrap(0, 1, 2).before(getGrammarAccess().getML_COMMENTRule());
-//		c.setLinewrap(0, 1, 1).after(getGrammarAccess().getML_COMMENTRule());
+		c.setLinewrap(0, 1, 2).before(grammar.getSL_COMMENTRule());
+		c.setLinewrap(0, 1, 2).before(grammar.getML_COMMENTRule());
+		c.setLinewrap(0, 1, 1).after(grammar.getML_COMMENTRule());
+
+		c.setAutoLinewrap(120);
+
+		handleBlocks(c, "events", "end");
+		handleBlocks(c, "resetEvents", "end");
+		handleBlocks(c, "commands", "end");
+		handleBlocks(c, "state", "end");
+
+		for (Keyword kw : grammar.findKeywords("=")) {
+			c.setSpace(" ").around(kw);
+		}
+
+		// no space before comma, one space after
+		for (Keyword kw : grammar.findKeywords(",")) {
+			c.setNoSpace().before(kw);
+			c.setSpace(" ").after(kw);
+		}
+		
+		c.setLinewrap().around(grammar.getStatemachineAccess().getEventsAssignment_1_1());
+		c.setLinewrap().around(grammar.getStatemachineAccess().getResetEventsAssignment_2_1());
+		c.setLinewrap().around(grammar.getStatemachineAccess().getCommandsAssignment_3_1());
+		c.setLinewrap().around(grammar.getStatemachineAccess().getStatesAssignment_4());
+
+		c.setLinewrap().around(grammar.getStateAccess().getTransitionsAssignment_3());
+
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_1_2(), grammar.getStatemachineAccess().getResetEventsKeyword_2_0());
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_1_2(), grammar.getStatemachineAccess().getCommandsKeyword_3_0());
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_2_2(), grammar.getStatemachineAccess().getCommandsKeyword_3_0());
+
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_1_2(), grammar.getStatemachineAccess().getStatesAssignment_4());
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_1_2(), grammar.getStatemachineAccess().getStatesAssignment_4());
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_2_2(), grammar.getStatemachineAccess().getStatesAssignment_4());
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getEndKeyword_3_2(), grammar.getStatemachineAccess().getStatesAssignment_4());
+
+		c.setLinewrap().between(grammar.getStateAccess().getRightCurlyBracketKeyword_2_3(), grammar.getStateAccess().getTransitionsAssignment_3());
+		c.setLinewrap(2).between(grammar.getStatemachineAccess().getStatesAssignment_4(), grammar.getStatemachineAccess().getStatesAssignment_4());
+	}
+
+	protected void handleBlocks(FormattingConfig c, String startKeyword,
+			String endKeyword) {
+		for (Pair<Keyword, Keyword> kw : grammar.findKeywordPairs(startKeyword,
+				endKeyword)) {
+			c.setLinewrap().after(kw.getFirst());
+			c.setLinewrap().around(kw.getSecond());
+			c.setIndentation(kw.getFirst(), kw.getSecond());
+		}
 	}
 }

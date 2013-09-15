@@ -5,7 +5,7 @@ import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.services.Graphiti;
 import org.eclipse.graphiti.ui.platform.AbstractPropertySectionFilter;
 
-public abstract class FowlerDslElementFilter extends AbstractPropertySectionFilter {
+public class FowlerDslElementFilter extends AbstractPropertySectionFilter {
 
 	@Override
 	protected boolean accept(PictogramElement pe) {
@@ -14,5 +14,7 @@ public abstract class FowlerDslElementFilter extends AbstractPropertySectionFilt
 		return accept(eObject);
 	}
 	
-	protected abstract boolean accept(EObject eObject);
+	protected boolean accept(EObject eObject) {
+		return eObject != null && !eObject.eIsProxy() /*&& eObject.eClass().getEPackage() instanceof StatemachinePackage*/;
+	}
 }
