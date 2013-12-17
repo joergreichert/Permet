@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
 	<modelVersion>4.0.0</modelVersion>
 	<!-- Tycho requires Maven 3 -->
 	<prerequisites>
@@ -14,88 +16,51 @@
 		<relativePath>../../releng/org.eclipse.xtext.example.fowlerdsl.repository.parent/pom.xml</relativePath>
 	</parent>
 
-	<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
 	<artifactId>org.eclipse.xtext.example.fowlerdsl.parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
-		<permet-local-targetrepository>file:../../releng/org.eclipse.xtext.example.fowlerdsl.repository/target/repository</permet-local-targetrepository>
-		<project.encoding>UTF-8</project.encoding>
-		<file.encoding>${project.encoding}</file.encoding>
-		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
 		<maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+		<maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
 		<maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
-		<maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
 		<maven-install-plugin.version>2.4</maven-install-plugin.version>
-		<maven-site-plugin.version>3.3</maven-site-plugin.version>
-		<maven-surefire-plugin.version>2.15</maven-surefire-plugin.version>
+		<maven-surefire-plugin.version>2.16</maven-surefire-plugin.version>
 		<maven-scm-plugin.version>1.8.1</maven-scm-plugin.version>
 		<maven-assembly-plugin.version>2.4</maven-assembly-plugin.version>
 		<maven-release-plugin.version>2.4.1</maven-release-plugin.version>
 		<maven-checkstyle-plugin.version>2.10</maven-checkstyle-plugin.version>
 		<findbugs-maven-plugin.version>2.5.2</findbugs-maven-plugin.version>
 		<maven-pmd-plugin.version>3.0.1</maven-pmd-plugin.version>
-		<maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
 		<build-helper-maven-plugin.version>1.8</build-helper-maven-plugin.version>
 		<eclipse-signing-maven-plugin.version>1.0.5</eclipse-signing-maven-plugin.version>
-		<fornax-oaw-m2-plugin.version>3.4.0</fornax-oaw-m2-plugin.version>
-		<xtend-maven-plugin.version>2.4.3</xtend-maven-plugin.version>
-		<xtend-library.version>2.4.3</xtend-library.version>
+		<exec-maven-plugin-version>1.2.1</exec-maven-plugin-version>
+		<xtend-maven-plugin-version>2.5.0</xtend-maven-plugin-version>
+		<xtend-library-version>2.5.0</xtend-library-version>
+		<xtext-version>2.5.0</xtext-version>
 		<jacoco-maven-plugin.version>0.6.3.201306030806</jacoco-maven-plugin.version>
 		<junit-version>4.11</junit-version>
-		<local-build-platform.version>[3.9,4.4)</local-build-platform.version>
+		<local-build-platform.version>[3.8,4.3)</local-build-platform.version>
+		<java-compile-version>1.7</java-compile-version>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<project.encoding>UTF-8</project.encoding>
+		<file.encoding>${project.encoding}</file.encoding>
+		<project.build.sourceEncoding>${project.encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${project.encoding}</project.reporting.outputEncoding>
+		<memoryInitial>128m</memoryInitial>
+		<memoryMaximum>1024m</memoryMaximum>
+		<memoryArgs>-Xms${memoryInitial} -Xmx${memoryMaximum} -XX:PermSize=256m -XX:MaxPermSize=256m</memoryArgs>
 		<encodingArgs>-Dfile.encoding=${file.encoding}</encodingArgs>
-		<ui.test.vmargs></ui.test.vmargs>
+		<loggingArgs>-Dlog4j.configuration=file:${project.basedir}/../../plugins/de.abg.jreichert.repositorytarget.activeannotations/log4j.xml</loggingArgs>
+		<skip.mwe2>true</skip.mwe2>
 		<coverageAgent></coverageAgent>
 		<it.coverage.argLine></it.coverage.argLine>
+		<permet-local-targetrepository>file:../../releng/org.eclipse.xtext.example.fowlerdsl.repository/target/repository</permet-local-targetrepository>
 	</properties>
 
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<resolver>p2</resolver>
-					<pomDependencies>consider</pomDependencies>
-					<environments>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-source-plugin</artifactId>
@@ -112,21 +77,28 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!-- TYCHO -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin-version}</version>
+					<configuration>
+						<source>>${java-compile-version}</source>
+						<target>>${java-compile-version}</target>
+					</configuration>
+				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>
 						<encoding>${project.encoding}</encoding>
-						<meminitial>128m</meminitial>
-						<maxmem>1024m</maxmem>
-						<source>6.0</source>
-						<target>6.0</target>
+						<meminitial>${memoryInitial}</meminitial>
+						<maxmem>${memoryMaximum}</maxmem>
+						<source>${java-compile-version}</source>
+						<target>${java-compile-version}</target>
 						<verbose>true</verbose>
 					</configuration>
 				</plugin>
-				<!-- enable source bundle generation -->
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
@@ -134,25 +106,14 @@
 					<configuration>
 						<useUIHarness>false</useUIHarness>
 						<useUIThread>false</useUIThread>
-						<argLine>${encodingArgs} ${ui.test.vmargs} ${coverageAgent}</argLine><!-- different for mac/not mac -->
+						<argLine>${memoryArgs} ${ui.test.vmargs} ${it.coverage.argLine} ${loggingArgs}</argLine>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-plugin</artifactId>
-					<version>${tycho-version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-repository-plugin</artifactId>
 					<version>${tycho-version}</version>
 				</plugin>
-				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-packaging-plugin</artifactId>
-					<version>${tycho-version}</version>
-				</plugin>
-				<!-- APACHE MAVEN PLUGINS -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
@@ -170,6 +131,9 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>${maven-deploy-plugin.version}</version>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -178,21 +142,11 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-site-plugin</artifactId>
-					<version>${maven-site-plugin.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
 					<configuration>
 						<argLine>${coverageAgent}</argLine>
 					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-clean-plugin</artifactId>
-					<version>${maven-clean-plugin.version}</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -222,8 +176,7 @@
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>${maven-checkstyle-plugin.version}</version>
 					<configuration>
-						<excludes>**org/eclipse.**:**/internal/**:**antlr**:**/parseTree**:**Abstract**RuntimeModule**:**SetupGenerated**:**Abstract**Validator**:
-							**GrammarAccess**:**Abstract**UiModule**:**Abstract**ProposalProvider**:**/mm/**::**Abstract**SemanticSequencer**</excludes>
+						<excludes>**org/eclipse.**:**/internal/**:**antlr**:**/parseTree**:**Abstract**RuntimeModule**:**SetupGenerated**:**Abstract**Validator**:**GrammarAccess**:**Abstract**UiModule**:**Abstract**ProposalProvider**:**Abstract**SemanticSequencer**</excludes>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -246,12 +199,12 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-pmd-plugin</artifactId>
-					<version>${maven-pmd-plugin.version}</version>
+					<version>${maven-pmd-plugin}</version>
 					<configuration>
 						<excludeRoots>
 							<excludeRoot>src-gen</excludeRoot>
 							<excludeRoot>xtend-gen</excludeRoot>
-						</excludeRoots>							
+						</excludeRoots>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -282,31 +235,61 @@
 					<version>${eclipse-signing-maven-plugin.version}</version>
 				</plugin>
 				<plugin>
-					<groupId>org.fornax.toolsupport</groupId>
-					<artifactId>fornax-oaw-m2-plugin</artifactId>
-					<version>${fornax-oaw-m2-plugin.version}</version>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.xtend</groupId>
-					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtend-maven-plugin.version}</version>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>${exec-maven-plugin-version}</version>
 					<executions>
 						<execution>
+							<phase>generate-sources</phase>
 							<goals>
-								<goal>compile</goal>
+								<goal>java</goal>
 							</goals>
 						</execution>
 					</executions>
 					<configuration>
-						<!-- need to prefix by basedir to generate to currently built module -->
-						<outputDirectory>${basedir}/xtend-gen</outputDirectory>
+						<skip>${skip.mwe2}</skip>
+						<includeProjectDependencies>false</includeProjectDependencies>
+						<includePluginDependencies>true</includePluginDependencies>
+						<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+						<arguments>
+							<argument>file://${project.basedir}/${mwe2.relative.path}</argument>
+						</arguments>
 					</configuration>
 					<dependencies>
-						<!-- these dependencies are contributed in Eclipse by the "Xtend Library" classpath container -->
+						<dependency>
+							<groupId>org.eclipse.xtext</groupId>
+							<artifactId>org.eclipse.xtext.xtext</artifactId>
+							<version>${xtext-version}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.eclipse.xtext</groupId>
+							<artifactId>org.eclipse.xtext.xbase</artifactId>
+							<version>${xtext-version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.xtend</groupId>
+					<artifactId>xtend-maven-plugin</artifactId>
+					<version>${xtend-maven-plugin-version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>xtend-install-debug-info</goal>
+								<goal>testCompile</goal>
+								<goal>xtend-test-install-debug-info</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputDirectory>${project.basedir}/xtend-gen</outputDirectory>
+					</configuration>
+					<dependencies>
 						<dependency>
 							<groupId>org.eclipse.xtend</groupId>
 							<artifactId>org.eclipse.xtend.lib</artifactId>
-							<version>${xtend-library.version}</version>
+							<version>${xtend-library-version}</version>
 							<type>pom</type>
 						</dependency>
 					</dependencies>
@@ -314,40 +297,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>sonatype</id>
-			<url>http://repository.sonatype.org/content/groups/sonatype-public-grid/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>sonatype_snapshot</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<!-- Fornax Workflow Runner plugin -->
-		<pluginRepository>
-			<id>fornax</id>
-			<url>http://www.fornax-platform.org/m2/repository</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-	
+
 	<!-- to resolve this warning "[WARNING] Unable to locate Source XRef to 
 		link to - DISABLED". With this warning PMD validation will work fine. -->
 	<reporting>
@@ -368,6 +318,51 @@
 					<name>local-build</name>
 				</property>
 			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<resolver>p2</resolver>
+							<pomDependencies>consider</pomDependencies>
+							<environments>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 			<repositories>
 				<repository>
 					<id>permet-dependencies</id>
@@ -375,6 +370,66 @@
 					<url>${permet-local-targetrepository}</url>
 				</repository>
 			</repositories>
+		</profile>
+		<profile>
+			<id>remote-build</id>
+			<activation>
+				<property>
+					<name>!local-build</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<resolver>p2</resolver>
+							<pomDependencies>consider</pomDependencies>
+							<target>
+								<artifact>
+									<groupId>de.abg.jreichert.repositorytarget</groupId>
+									<artifactId>de.abg.jreichert.repositorytarget.targetplatform</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+							<environments>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 		<profile>
 			<id>skip-ui-tests</id>
@@ -396,7 +451,7 @@
 				</os>
 			</activation>
 			<properties>
-				<ui.test.vmargs>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+				<ui.test.vmargs>-XstartOnFirstThread</ui.test.vmargs>
 			</properties>
 		</profile>
 		<profile>
@@ -408,7 +463,7 @@
 				</os>
 			</activation>
 			<properties>
-				<ui.test.vmargs>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m</ui.test.vmargs>
+				<ui.test.vmargs></ui.test.vmargs>
 			</properties>
 		</profile>
 		<profile>

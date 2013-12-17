@@ -7,6 +7,7 @@ TargetDefinition "Permet Target Platform - Eclipse 4.3"
 	"Eclipse Kepler" http://download.eclipse.org/releases/kepler {
 		org.eclipse.sdk 4.3.0.v20130605-2000,
 		org.eclipse.pde 3.9.0.v20130605-2000,
+		org.eclipse.emf.sdk 2.9.1.v20130902-0605,
 		org.eclipse.emf.transaction.sdk 1.7.0.201306111400,
 		org.eclipse.emf.eef.sdk-feature 1.2.0.201301111054,
 		org.eclipse.gef.sdk 3.9.0.201305060205,
@@ -16,11 +17,10 @@ TargetDefinition "Permet Target Platform - Eclipse 4.3"
 	}
 
 	"Xtext & Xtend" http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/ {
-		org.eclipse.emf.sdk 2.9.1.v20130902-0605,
-		org.eclipse.xtext.sdk 2.4.3.v201309030823,
-		org.eclipse.xtend.sdk 2.4.3.v201309030823,
-		org.eclipse.emf.mwe2.language.sdk 2.4.1.v201309030840,
-		org.eclipse.emf.mwe2.runtime.sdk 2.4.1.v201309030422
+		org.eclipse.xtext.sdk 2.5.0.v201312110906,
+		org.eclipse.xtend.sdk 2.5.0.v201312110906,
+		org.eclipse.emf.mwe2.language.sdk 2.5.0.v201312110944,
+		org.eclipse.emf.mwe2.runtime.sdk 2.5.0.v201312110307
 	}	
 
 	"Xtext ANTLR" http://download.itemis.com/updates/releases/2.1.0/ {
@@ -29,7 +29,7 @@ TargetDefinition "Permet Target Platform - Eclipse 4.3"
 	}
 
 	"Xpect" http://www.xpect-tests.org/updatesite/nightly/ {
-		org.xpect.sdk 0.1.0.201308231740
+		org.xpect.sdk 0.1.0.201311301514
 	}
 	
 	"SWTBot" http://download.eclipse.org/technology/swtbot/releases/latest/ {
