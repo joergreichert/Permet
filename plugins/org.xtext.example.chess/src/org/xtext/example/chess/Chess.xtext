@@ -1,0 +1,115 @@
+grammar org.xtext.example.chess.Chess hidden(ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+generate chess "http://www.eclipse.org/xtext/example/Chess"
+
+Game:
+	rounds+=Round
+	(NL rounds+=Round)*
+;
+
+Round:
+	count=NUMBER '.' WS whiteMove=Move ((',')? WS blackMove=Move)?
+;
+
+Move :
+	SimpleMove | CastlingQueensSide | CastlingKingsSide
+;
+
+SimpleMove :
+	(piece=PIECE)?
+	(
+		(source=SquareAlternatives (captures?="x"|"-"))? 
+		dest=Square
+	)
+	(transformTo=PIECE)?
+	(check=CheckState)?
+	(comment=Comment)?
+	(WS enPassant?='e.p.')?
+;
+
+CastlingQueensSide : {CastlingQueensSide}
+	'0-0'
+;
+
+CastlingKingsSide : {CastlingKingsSide}
+	'0-0-0'
+;
+
+// http://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
+enum PIECE:
+	pawn='\u0050'   |
+	knight='\u004E' |
+	bishop='\u0042' |
+	rook='\u0052'   |
+	queen='\u0051'  |
+	king='\u004B'
+;
+
+enum GermanPiece returns PIECE:
+	pawn='B'   |
+	knight='S' |
+	bishop='L' |
+	rook='T'   |
+	queen='D'  |
+	king='K'
+;
+
+enum WhitePiece returns PIECE:
+    pawn='\u2659'   |
+	knight='\u2658' |
+	bishop='\u2657' |
+	rook='\u2656'   |
+	queen='\u2655'  |
+	king='\u2654'
+;
+
+enum BlackPiece returns PIECE:
+	pawn='\u265F'   |
+	knight='\u265E' |
+	bishop='\u265D' |
+	rook='\u265C'   |
+	queen='\u265B'  |
+	king='\u265A'
+;
+
+SquareAlternatives returns Square:
+	Square | SquareWithoutCol | SquareWithoutRow
+;
+
+Square:
+	row=ROW col=NUMBER
+;
+
+SquareWithoutCol returns Square:
+	row=ROW
+;
+
+SquareWithoutRow returns Square:
+	col=NUMBER
+;
+
+enum Comment : 
+	none= 'noComment'      |
+	goodMove="!"      |
+	veryGoodMove="!!" |
+	braveMove="!?"    |
+	badMove="?"       |
+	veryBadMove="??"  |
+	strangeMove="?!"
+;
+
+enum CheckState:
+	none        = 'noCheck' |
+	check       = '+'  |
+	doubleCheck = '++' |
+	checkMate   = '#'
+;
+
+terminal ROW: '\u0061' .. '\u0068';
+terminal NUMBER returns ecore::EInt: ('1' .. '9')('0' .. '9')*;
+
+terminal ML_COMMENT	: '/*' -> '*/';
+terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')?;
+terminal WS: (' '|'\t')+;
+terminal NL: ('\r'|'\n')+;

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="chess" nsURI="http://www.eclipse.org/xtext/example/Chess" nsPrefix="chess">
+  <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rounds" upperBound="-1"
+        eType="#//Round" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Round">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whiteMove" eType="#//Move"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blackMove" eType="#//Move"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Move"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleMove" eSuperTypes="#//Move">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="piece" eType="#//PIECE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Square"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="captures" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dest" eType="#//Square"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="transformTo" eType="#//PIECE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="check" eType="#//CheckState"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="#//Comment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enPassant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CastlingQueensSide" eSuperTypes="#//Move"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CastlingKingsSide" eSuperTypes="#//Move"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="PIECE">
+    <eLiterals name="pawn" literal="P"/>
+    <eLiterals name="knight" value="1" literal="N"/>
+    <eLiterals name="bishop" value="2" literal="B"/>
+    <eLiterals name="rook" value="3" literal="R"/>
+    <eLiterals name="queen" value="4" literal="Q"/>
+    <eLiterals name="king" value="5" literal="K"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Square">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="col" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Comment">
+    <eLiterals name="none" literal="noComment"/>
+    <eLiterals name="goodMove" value="1" literal="!"/>
+    <eLiterals name="veryGoodMove" value="2" literal="!!"/>
+    <eLiterals name="braveMove" value="3" literal="!?"/>
+    <eLiterals name="badMove" value="4" literal="?"/>
+    <eLiterals name="veryBadMove" value="5" literal="??"/>
+    <eLiterals name="strangeMove" value="6" literal="?!"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CheckState">
+    <eLiterals name="none" literal="noCheck"/>
+    <eLiterals name="check" value="1" literal="+"/>
+    <eLiterals name="doubleCheck" value="2" literal="++"/>
+    <eLiterals name="checkMate" value="3" literal="#"/>
+  </eClassifiers>
+</ecore:EPackage>

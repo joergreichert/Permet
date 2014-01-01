@@ -1,0 +1,69 @@
+module org.xtext.example.chess.Chess
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+
+var grammarURI = "classpath:/org/xtext/example/chess/Chess.xtext"
+var fileExtensions = "chess"
+var projectName = "org.xtext.example.chess"
+var runtimeProject = "../${projectName}"
+var testProject = "../../tests/${projectName}.tests"
+var generateXtendStub = true
+
+Workflow {
+	bean = StandaloneSetup {
+		scanClassPath = true
+		platformUri = "${runtimeProject}/.."
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.ui/src-gen"
+	}
+
+	component = Generator {
+		pathRtProject = runtimeProject
+		pathUiProject = "${runtimeProject}.ui"
+		pathTestProject = "${testProject}"
+		projectNameRt = projectName
+		projectNameUi = "${projectName}.ui"
+		language = auto-inject {
+			uri = grammarURI
+			fragment = grammarAccess.GrammarAccessFragment auto-inject {}
+			fragment = ecore.EMFGeneratorFragment auto-inject {}
+			fragment = serializer.SerializerFragment auto-inject {}
+			fragment = resourceFactory.ResourceFactoryFragment auto-inject {}
+			fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
+				options = {
+					classSplitting = true
+				}
+			}
+			fragment = validation.ValidatorFragment auto-inject {}
+			fragment = exporting.SimpleNamesFragment auto-inject {}
+			fragment = formatting.FormatterFragment auto-inject {}
+			fragment = builder.BuilderIntegrationFragment auto-inject {}
+			fragment = generator.GeneratorFragment auto-inject {}
+			fragment = labeling.LabelProviderFragment auto-inject {}
+			fragment = outline.OutlineTreeProviderFragment auto-inject {}
+			fragment = outline.QuickOutlineFragment auto-inject {}
+			fragment = quickfix.QuickfixProviderFragment auto-inject {}
+			fragment = contentAssist.ContentAssistFragment auto-inject {}
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+				options = {
+					classSplitting = true
+				}
+			}
+			fragment = junit.Junit4Fragment auto-inject {}
+			fragment = projectWizard.SimpleProjectWizardFragment auto-inject {
+				generatorProjectName = "${projectName}.generator"
+			}
+			fragment = refactoring.RefactorElementNameFragment auto-inject {}
+			fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+			fragment = compare.CompareFragment auto-inject {}
+		}
+	}
+}

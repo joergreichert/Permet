@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.chess
+Bundle-Vendor: Joerg Reichert
+Bundle-Version: 0.1.0.qualifier
+Bundle-SymbolicName: org.xtext.example.chess; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.xtext.example.chess,
+ org.xtext.example.chess.services,
+ org.xtext.example.chess.chess,
+ org.xtext.example.chess.chess.impl,
+ org.xtext.example.chess.chess.util,
+ org.xtext.example.chess.serializer,
+ org.xtext.example.chess.parser.antlr,
+ org.xtext.example.chess.parser.antlr.internal,
+ org.xtext.example.chess.validation,
+ org.xtext.example.chess.formatting,
+ org.xtext.example.chess.generator

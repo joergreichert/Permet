@@ -40,6 +40,10 @@
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.edit</module>
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.eef</module>
 				<module>../../plugins/org.eclipse.xtext.example.fowlerdsl.diagram</module>
+				<module>../../plugins/org.xtext.example.chess</module>
+				<module>../../plugins/org.xtext.example.chess.ui</module>
+				<module>../../tests/org.xtext.example.chess.tests</module>
+				<module>../../plugins/org.eclipse.graphiti.examples.chess</module>
 			</modules>
 		</profile>
 		<profile>

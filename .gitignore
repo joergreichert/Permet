@@ -1,0 +1,12 @@
+bin
+target
+.DS_Store
+plugin.xml_gen
+screenshots
+.netrc
+*.bak
+Copy of*
+Copy* of src-gen
+products
+*.ec
+model

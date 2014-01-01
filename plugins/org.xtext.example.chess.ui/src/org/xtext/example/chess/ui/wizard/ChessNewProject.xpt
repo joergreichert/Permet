@@ -1,0 +1,14 @@
+«IMPORT org::xtext::example::chess::ui::wizard»
+
+«DEFINE main FOR ChessProjectInfo»
+«EXPAND model FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR ChessProjectInfo»
+«FILE "src/model/Model.chess"-»
+/*
+ * This is an example model
+ */
+Hello Xtext!
+«ENDFILE»
+«ENDDEFINE»
