@@ -66,6 +66,7 @@
 			</activation>
 			<modules>
 				<module>../../features/org.eclipse.xtext.example.fowlerdsl.feature</module>
+				<module>../../features/org.xtext.example.chess.feature</module>
 				<module>../../features/org.eclipse.xtext.example.fowlerdsl.updatesite</module>
 			</modules>
 		</profile>

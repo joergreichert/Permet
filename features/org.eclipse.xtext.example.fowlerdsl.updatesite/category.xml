@@ -3,5 +3,8 @@
    <feature url="features/org.eclipse.xtext.example.fowlerdsl.feature_0.0.0.jar" id="org.eclipse.xtext.example.fowlerdsl.feature" version="0.0.0">
       <category name="permet"/>
    </feature>
+   <feature url="features/org.xtext.example.chess.feature_0.0.0.jar" id="org.xtext.example.chess.feature" version="0.0.0">
+      <category name="permet"/>
+   </feature>
    <category-def name="permet" label="Permet"/>
 </site>

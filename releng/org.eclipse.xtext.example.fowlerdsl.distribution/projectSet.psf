@@ -2,6 +2,7 @@
 <psf version="2.0">
 <provider id="org.eclipse.egit.core.GitProvider">
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,examples/FowlerDslTest"/>
+<project reference="1.0,https://github.com/joergreichert/Permet.git,master,plugins/org.eclipse.graphiti.examples.chess"/>
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,plugins/org.eclipse.xtext.example.fowlerdsl"/>
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,releng/org.eclipse.xtext.example.fowlerdsl.config.parent"/>
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,plugins/org.eclipse.xtext.example.fowlerdsl.diagram"/>
@@ -16,28 +17,58 @@
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,releng/org.eclipse.xtext.example.fowlerdsl.targetplatform"/>
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,plugins/org.eclipse.xtext.example.fowlerdsl.ui"/>
 <project reference="1.0,https://github.com/joergreichert/Permet.git,master,features/org.eclipse.xtext.example.fowlerdsl.updatesite"/>
+<project reference="1.0,https://github.com/joergreichert/Permet.git,master,plugins/org.xtext.example.chess"/>
+<project reference="1.0,https://github.com/joergreichert/Permet.git,master,tests/org.xtext.example.chess.tests"/>
+<project reference="1.0,https://github.com/joergreichert/Permet.git,master,plugins/org.xtext.example.chess.ui"/>
 </provider>
-<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648234984_5" label="examples" name="examples">
-<item elementID="=FowlerDslTest" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-</workingSets>
-<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648221010_4" label="features" name="features">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.feature" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.updatesite" type="4"/>
-</workingSets>
-<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648204950_3" label="plugins" name="plugins">
-<item elementID="=org.eclipse.xtext.example.fowlerdsl.eef" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=org.eclipse.xtext.example.fowlerdsl.ui" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=org.eclipse.xtext.example.fowlerdsl.diagram" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=org.eclipse.xtext.example.fowlerdsl" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=org.eclipse.xtext.example.fowlerdsl.edit" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1388652473187_11" label="UpdateSite" name="UpdateSite">
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.updatesite" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.feature" type="4"/>
 </workingSets>
 <workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648180327_2" label="releng" name="releng">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.distribution" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.config.parent" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.parent" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.targetplatform" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.repository" type="4"/>
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.repository.parent" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.distribution" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.targetplatform" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.repository.parent" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.repository" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.parent" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.config.parent" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648234984_5" label="examples" name="examples">
+<item elementID="=FowlerDslTest" factoryId="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648204950_3" label="plugins" name="plugins">
+<item elementID="=org.eclipse.xtext.example.fowlerdsl" factoryId="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=org.eclipse.xtext.example.fowlerdsl.ui" factoryId="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=org.eclipse.xtext.example.fowlerdsl.diagram" factoryId="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=org.eclipse.xtext.example.fowlerdsl.edit" factoryId="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=org.eclipse.xtext.example.fowlerdsl.eef" factoryId="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1388652473172_4" label="FowlerDSL" name="FowlerDSL">
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.ui" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.diagram" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.eef" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.edit" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.config.parent" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/FowlerDslTest" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1388652473172_2" label="Releng" name="Releng">
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.distribution" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.targetplatform" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.repository.parent" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.repository" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.parent" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1388652473172_0" label="ChessDSL" name="ChessDSL">
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.graphiti.examples.chess" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.xtext.example.chess" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.xtext.example.chess.tests" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.xtext.example.chess.ui" type="4"/>
+</workingSets>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1378648221010_4" label="features" name="features">
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.updatesite" type="4"/>
+<item factoryId="org.eclipse.ui.internal.model.ResourceFactory" path="/org.eclipse.xtext.example.fowlerdsl.feature" type="4"/>
 </workingSets>
 </psf>
