@@ -4,7 +4,7 @@
     editorDirectory="/../plugins/org.xtext.example.chess.editor/src" modelPluginID="org.xtext.example.chess"
     forceOverwrite="true" modelName="Chess" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.xtext.example.chess.edit"
-    editorPluginID="org.xtext.example.chess.edit" runtimeVersion="2.9">
+    editorPluginID="org.xtext.example.chess.edit" runtimeVersion="2.10">
   <genPackages prefix="Chess" basePackage="org.xtext.example.chess" disposableProviderFactory="true"
       fileExtensions="chess" ecorePackage="Chess.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Chess.ecore#//PIECE">
