@@ -1,3 +1,3 @@
 http://joergreichert.github.com/Permet/
 
-https://www.travis-ci.org/joergreichert/Permet
+[![Build Status](https://travis-ci.org/joergreichert/Permet.png?branch=master)](https://travis-ci.org/joergreichert/Permet)
