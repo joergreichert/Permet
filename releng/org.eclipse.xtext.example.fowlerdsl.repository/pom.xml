@@ -10,7 +10,7 @@
 		<relativePath>../../releng/org.eclipse.xtext.example.fowlerdsl.repository.parent/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>org.eclipse.xtext.example.fowlerdsl.releng.repository</artifactId>
+	<artifactId>org.eclipse.xtext.example.fowlerdsl.repository</artifactId>
 	<packaging>eclipse-repository</packaging>
 	
 	<build>
