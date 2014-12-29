@@ -9,7 +9,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.example.fowlerdsl;bundle-version="0.1.0",
  org.eclipse.emf.eef.runtime;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.eclipse.xtext.example.fowlerdsl.eef,
  org.eclipse.xtext.example.fowlerdsl.statemachine.components,
  org.eclipse.xtext.example.fowlerdsl.statemachine.parts,

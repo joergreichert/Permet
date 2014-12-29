@@ -14,4 +14,4 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.gef;bundle-version="3.7.0",
  org.eclipse.xtext.example.fowlerdsl.edit;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

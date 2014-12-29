@@ -1507,6 +1507,14 @@
     </setupTask>
     <setupTask
         xsi:type="setup:CompoundTask"
+		name="org.eclipse.pde.api.tools">
+	  <setupTask
+		  xsi:type="setup:PreferenceTask"
+		  key="/instance/org.eclipse.pde.api.tools/missing_default_api_profile"
+		  value="Ignore"/>
+	</setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
         name="org.eclipse.pde.ui">
       <setupTask
           xsi:type="setup:PreferenceTask"
