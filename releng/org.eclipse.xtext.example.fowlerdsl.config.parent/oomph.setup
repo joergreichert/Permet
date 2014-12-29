@@ -1691,7 +1691,7 @@
       <requirement
           name="org.eclipse.xtext.example.fowlerdsl.feature.feature.group"/>
       <requirement
-          name="org.eclipse.xtext.example.chess.feature.feature.group"/>
+          name="org.xtext.example.chess.feature.feature.group"/>
       <requirement
           name="de.abg.jreichert.repositorytarget.feature.feature.group"/>
       <requirement
