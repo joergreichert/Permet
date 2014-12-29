@@ -1693,8 +1693,6 @@
       <requirement
           name="org.xtext.example.chess.feature.feature.group"/>
       <requirement
-          name="de.abg.jreichert.repositorytarget.feature.feature.group"/>
-      <requirement
           name="org.eclipse.platform.feature.group"/>
       <requirement
           name="org.eclipse.e4.rcp.R441patch.feature.group"
