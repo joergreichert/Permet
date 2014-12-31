@@ -68,7 +68,7 @@
         label="Eclipse Luna"
         licenseConfirmationDisabled="true">
       <requirement
-          name="org.eclipse.sdk"/>
+          name="org.eclipse.platform.feature,group"/>
       <requirement
           name="org.eclipse.e4.rcp.R441patch.feature.group"/>
       <repository
@@ -184,6 +184,8 @@
         licenseConfirmationDisabled="true">
       <requirement
           name="org.eclipse.swtbot.eclipse.feature.group"/>
+      <requirement
+          name=""org.eclipse.swtbot.eclipse.gef.feature.group"/>
       <repository
           url="http://download.eclipse.org/technology/swtbot/releases/latest/"/>
       <description>UI testing framework</description>
@@ -1716,9 +1718,15 @@
           name="org.eclipse.xtend.sdk.feature.group"
           versionRange="[2.7.3,2.8.0)"/>
       <requirement
-          name="org.eclipse.emf.transaction.sdk.feature.group"/>
+          name="org.eclipse.emf.mwe2.language.sdk.feature.group"
+          versionRange="2.7.0"/>
       <requirement
-          name="org.eclipse.emf.eef.runtime-feature.feature.group"/>
+          name="org.eclipse.emf.mwe2.runtime.sdk.feature.group"
+          versionRange="2.7.0"/>
+      <requirement
+          name="de.itemis.xtext.antlr.sdk.feature.group"/>
+      <requirement
+          name="org.eclipse.emf.transaction.sdk.feature.group"/>
       <requirement
           name="org.eclipse.emf.eef.sdk-feature.feature.group"/>
       <requirement
@@ -1735,6 +1743,8 @@
           name="org.eclipse.jdt.junit.runners.feature.feature.group"/>
       <requirement
           name="org.eclipse.swtbot.eclipse.feature.group"/>
+      <requirement
+          name=""org.eclipse.swtbot.eclipse.gef.feature.group"/>
       <sourceLocator
           rootFolder="${git.clone.permet.location}"
           locateNestedProjects="true"/>
