@@ -68,7 +68,7 @@
         label="Eclipse Luna"
         licenseConfirmationDisabled="true">
       <requirement
-          name="org.eclipse.platform.feature,group"/>
+          name="org.eclipse.platform.feature.group"/>
       <requirement
           name="org.eclipse.e4.rcp.R441patch.feature.group"/>
       <repository
