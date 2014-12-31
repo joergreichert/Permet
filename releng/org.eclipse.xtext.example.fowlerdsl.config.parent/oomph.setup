@@ -185,7 +185,7 @@
       <requirement
           name="org.eclipse.swtbot.eclipse.feature.group"/>
       <requirement
-          name=""org.eclipse.swtbot.eclipse.gef.feature.group"/>
+          name="org.eclipse.swtbot.eclipse.gef.feature.group"/>
       <repository
           url="http://download.eclipse.org/technology/swtbot/releases/latest/"/>
       <description>UI testing framework</description>
@@ -1744,7 +1744,7 @@
       <requirement
           name="org.eclipse.swtbot.eclipse.feature.group"/>
       <requirement
-          name=""org.eclipse.swtbot.eclipse.gef.feature.group"/>
+          name="org.eclipse.swtbot.eclipse.gef.feature.group"/>
       <sourceLocator
           rootFolder="${git.clone.permet.location}"
           locateNestedProjects="true"/>
