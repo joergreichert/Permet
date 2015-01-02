@@ -18,65 +18,8 @@
 	<packaging>pom</packaging>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho-version}</version>
-				<configuration>
-					<resolver>p2</resolver>
-					<pomDependencies>consider</pomDependencies>
-					<target>
-						<artifact>
-							<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
-							<artifactId>org.eclipse.xtext.example.fowlerdsl.targetplatform</artifactId>
-							<version>${project.version}</version>
-						</artifact>
-						<!-- http://wiki.eclipse.org/Tycho/Target_Platform#Target_files -->
-						<artifact>
-							<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
-							<artifactId>org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform</artifactId>
-							<version>${project.version}</version>
-						</artifact>
-					</target>
-					<environments>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86_64</arch>
-						</environment>
-						<environment>
-							<os>macosx</os>
-							<ws>cocoa</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86</arch>
-						</environment>
-						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
-							<arch>x86_64</arch>
-						</environment>
-					</environments>
-				</configuration>
-			</plugin>
-		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!-- TYCHO -->
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-p2-repository-plugin</artifactId>
@@ -85,4 +28,74 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<profiles>
+		<profile>
+         <id>remote-build</id>
+         <activation>
+            <property>
+               <name>!local-build</name>
+            </property>
+         </activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<resolver>p2</resolver>
+							<pomDependencies>consider</pomDependencies>
+							<target>
+								<artifact>
+									<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
+									<artifactId>org.eclipse.xtext.example.fowlerdsl.targetplatform</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+								<!-- http://wiki.eclipse.org/Tycho/Target_Platform#Target_files -->
+								<artifact>
+									<groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
+									<artifactId>org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform</artifactId>
+									<version>${project.version}</version>
+								</artifact>
+							</target>
+							<environments>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>win32</os>
+									<ws>win32</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86</arch>
+								</environment>
+								<environment>
+									<os>linux</os>
+									<ws>gtk</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>

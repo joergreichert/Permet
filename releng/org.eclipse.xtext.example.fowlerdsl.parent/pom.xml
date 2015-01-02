@@ -53,7 +53,7 @@
       <memoryPermSizeArgs>-XX:PermSize=256m -XX:MaxPermSize=256m</memoryPermSizeArgs>
       <memoryArgs>-Xms${memoryInitial} -Xmx${memoryMaximum}</memoryArgs>
       <encodingArgs>-Dfile.encoding=${file.encoding}</encodingArgs>
-		<loggingArgs>-Dlog4j.configuration=file:${project.basedir}/../../plugins/de.abg.jreichert.repositorytarget.activeannotations/log4j.xml</loggingArgs>
+		<loggingArgs>-Dlog4j.configuration=file:${project.basedir}/../../plugins/org.eclipse.xtext.example.fowlerdsl/log4j.xml</loggingArgs>
 		<skip.mwe2>true</skip.mwe2>
 		<coverageAgent></coverageAgent>
 		<it.coverage.argLine></it.coverage.argLine>
@@ -112,11 +112,6 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<groupId>org.eclipse.tycho</groupId>
-					<artifactId>tycho-p2-repository-plugin</artifactId>
-					<version>${tycho-version}</version>
-				</plugin>
-				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>${maven-resources-plugin.version}</version>
@@ -164,11 +159,7 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${maven-release-plugin.version}</version>
 					<configuration>
-						<preparationGoals>clean -DnewVersion=${releaseVersion}
-							-Dprudent=true
-							org.eclipse.tycho:tycho-versions-plugin:set-version
-							verify
-							scm:checkin</preparationGoals>
+						<preparationGoals>clean -DnewVersion=${releaseVersion} -Dprudent=true org.eclipse.tycho:tycho-versions-plugin:set-version verify scm:checkin</preparationGoals>
 						<arguments>-Prelease</arguments>
 					</configuration>
 				</plugin>
@@ -360,6 +351,11 @@
 				<plugins>
 					<plugin>
 						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-p2-repository-plugin</artifactId>
+						<version>${tycho-version}</version>
+					</plugin>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
 						<artifactId>target-platform-configuration</artifactId>
 						<version>${tycho-version}</version>
 						<configuration>
@@ -397,6 +393,9 @@
 									<arch>x86_64</arch>
 								</environment>
 							</environments>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+							</dependency-resolution>
 						</configuration>
 					</plugin>
 				</plugins>
@@ -426,11 +425,17 @@
 							<resolver>p2</resolver>
 							<pomDependencies>consider</pomDependencies>
 							<target>
-								<artifact>
-									<groupId>de.abg.jreichert.repositorytarget</groupId>
-									<artifactId>de.abg.jreichert.repositorytarget.targetplatform</artifactId>
-									<version>${project.version}</version>
-								</artifact>
+                        <artifact>
+                           <groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
+                           <artifactId>org.eclipse.xtext.example.fowlerdsl.targetplatform</artifactId>
+                           <version>${project.version}</version>
+                        </artifact>
+                        <!-- http://wiki.eclipse.org/Tycho/Target_Platform#Target_files -->
+                        <artifact>
+                           <groupId>org.eclipse.xtext.example.fowlerdsl</groupId>
+                           <artifactId>org.eclipse.xtext.example.fowlerdsl.orbit.targetplatform</artifactId>
+                           <version>${project.version}</version>
+                        </artifact>
 							</target>
 							<environments>
 								<environment>
@@ -464,6 +469,9 @@
 									<arch>x86_64</arch>
 								</environment>
 							</environments>
+							<dependency-resolution>
+								<optionalDependencies>ignore</optionalDependencies>
+							</dependency-resolution>
 						</configuration>
 					</plugin>
 				</plugins>
