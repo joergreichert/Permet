@@ -95,9 +95,9 @@
           name="org.eclipse.emf.mwe2.runtime.sdk.feature.group"
           versionRange="2.7.0"/>
       <repository
-          url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+          url="${emf.p2.uri}"/>
       <repository
-          url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+          url="${xtext.p2.uri}"/>
       <description>Xtext &amp; Xtend</description>
     </setupTask>
     <setupTask
@@ -1755,9 +1755,9 @@
         <repository
             url="http://download.eclipse.org/eclipse/updates/4.5milestones"/>
         <repository
-            url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+            url="${emf.p2.uri}"/>
         <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+            url="${xtext.p2.uri}"/>
         <repository
             url="http://download.itemis.com/updates/releases/2.1.1/"/>
         <repository
@@ -1772,9 +1772,9 @@
         <repository
             url="http://download.eclipse.org/eclipse/updates/4.4"/>
         <repository
-            url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+            url="${emf.p2.uri}"/>
         <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+            url="${xtext.p2.uri}"/>
         <repository
             url="http://download.itemis.com/updates/releases/2.1.1/"/>
         <repository
@@ -1789,9 +1789,9 @@
         <repository
             url="http://download.eclipse.org/eclipse/updates/4.3"/>
         <repository
-            url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+            url="${emf.p2.uri}"/>
         <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+            url="${xtext.p2.uri}"/>
         <repository
             url="http://download.itemis.com/updates/releases/2.1.1/"/>
         <repository
@@ -1806,9 +1806,9 @@
         <repository
             url="http://download.eclipse.org/eclipse/updates/4.2"/>
         <repository
-            url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+            url="${emf.p2.uri}"/>
         <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+            url="${xtext.p2.uri}"/>
         <repository
             url="http://download.itemis.com/updates/releases/2.1.1/"/>
         <repository
@@ -1861,7 +1861,30 @@
       </query>
     </setupTask>
   </setupTask>
-  <stream name="master"/>
+  <stream name="master">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="URI"
+        name="xtext.p2.uri"
+        value="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="URI"
+        name="emf.p2.uri"
+        value="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+  </stream>
+  <stream name="xtext28">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="URI"
+        name="xtext.p2.uri"
+        value="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/latest/"/>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="URI"
+        name="emf.p2.uri"
+        value="http://download.eclipse.org/modeling/emf/emf/updates/interim/"/>
+  </stream>
   <logicalProjectContainer
       xsi:type="setup:Project"
       href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']/@projects[name='GitHubContainer']"/>
