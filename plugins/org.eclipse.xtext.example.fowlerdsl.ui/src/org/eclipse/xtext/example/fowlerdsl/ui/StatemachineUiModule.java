@@ -12,17 +12,17 @@ import org.eclipse.xtext.ui.editor.DirtyStateManager;
 /**
  * Use this class to register components to be used within the IDE.
  */
-public class StatemachineUiModule extends
-		org.eclipse.xtext.example.fowlerdsl.ui.AbstractStatemachineUiModule {
-	public StatemachineUiModule(AbstractUIPlugin plugin) {
-		super(plugin);
-	}
+public class StatemachineUiModule extends org.eclipse.xtext.example.fowlerdsl.ui.AbstractStatemachineUiModule {
+    public StatemachineUiModule(AbstractUIPlugin plugin) {
+        super(plugin);
+    }
 
-	Class<? extends DirtyStateEditorSupport> bindDirtyStateEditorSupport() {
-		return StatemachineDirtyStateEditorSupport.class;
-	}
+    @Override
+    public Class<? extends DirtyStateEditorSupport> bindDirtyStateEditorSupport() {
+        return StatemachineDirtyStateEditorSupport.class;
+    }
 
-	Class<? extends DirtyStateManager> bindDirtyStateManager() {
-		return StatemachineDirtyStateManager.class;
-	}
+    Class<? extends DirtyStateManager> bindDirtyStateManager() {
+        return StatemachineDirtyStateManager.class;
+    }
 }
